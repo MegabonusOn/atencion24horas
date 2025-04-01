@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page - Mega Bonus</title>
+    <title>Landing Page - Bonus de Bienvenida</title>
 
     <!-- Meta Pixel Code -->
     <script>
@@ -25,7 +25,7 @@
             s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '635168062745954'); // Reemplaza por tu Pixel ID de Meta
+        fbq('init', '635168062745954'); // Reemplaza por el Pixel ID de Damian
         fbq('track', 'PageView');
     </script>
     <noscript>
@@ -68,9 +68,8 @@
             margin-bottom: 20px;
         }
 
-        /* Botón de llamada a la acción */
         .cta-button {
-            background-color: #8e44ad; /* Color violeta */
+            background-color: #25d366; /* Color de WhatsApp */
             color: white;
             padding: 15px 30px;
             font-size: 1.2em;
@@ -85,21 +84,26 @@
         }
 
         .cta-button:hover {
-            background-color: #732d91; /* Color más oscuro de violeta al pasar el cursor */
+            background-color: #128c7e; /* Color más oscuro al pasar el cursor */
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>¡Bienvenido a tu Bono Mega Bonus!</h1>
-        <p>¿Estás listo para obtener tu bono del 200%? Solo haz clic en el siguiente botón y estarás un paso más cerca.</p>
-        <a href="https://wa.link/megabonus" class="cta-button" target="_blank" onclick="fbq('track', 'Contact');">CARGA AHORA</a>
+        <!-- Título -->
+        <h1>BONUS DE BIENVENIDA</h1>
+
+        <!-- Subtítulo -->
+        <p>Estamos las 24 horas activos, Haz clic para crear tu usuario al instante</p>
+
+        <!-- Botón de llamada a la acción -->
+        <a href="https://wa.link/megabonus" class="cta-button" target="_blank" onclick="fbq('track', 'Contact');">CHATEAR EN WHATSAPP</a>
     </div>
 
     <!-- Barra fija (opcional) -->
     <div class="bono-bar" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #16a34a; color: white; text-align: center; padding: 10px; font-weight: bold;">
-        🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
+        🎁 ¡Solicítalo ahora por WhatsApp!
     </div>
 </body>
 
