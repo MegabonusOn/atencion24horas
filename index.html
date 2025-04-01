@@ -4,43 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page - Bonus de Bienvenida</title>
+    <title>Landing Page - BONUS DE BIENVENIDA</title>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code de Damian -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '635168062745954'); // Reemplaza por el Pixel ID de Damian
+        !function(f, b, e, v, n, t, s) {
+            if(f.fbq) return; n=f.fbq=function(){n.callMethod ?
+            n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
+            if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+            n.queue=[]; t=b.createElement(e); t.async=!0;
+            t.src=v; s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)
+        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '635168062745954'); // Pixel de Meta de Damian
         fbq('track', 'PageView');
     </script>
     <noscript>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=635168062745954&ev=PageView&noscript=1" />
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=635168062745954&ev=PageView&noscript=1" />
     </noscript>
     <!-- End Meta Pixel Code -->
 
     <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #111b21;
+            margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -68,6 +65,11 @@
             margin-bottom: 20px;
         }
 
+        .whatsapp-logo {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+
         .cta-button {
             background-color: #25d366; /* Color de WhatsApp */
             color: white;
@@ -86,25 +88,120 @@
         .cta-button:hover {
             background-color: #128c7e; /* Color más oscuro al pasar el cursor */
         }
+
+        footer {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin-top: 60px;
+            padding-bottom: 80px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <!-- Logo de WhatsApp -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="whatsapp-logo">
+
         <!-- Título -->
         <h1>BONUS DE BIENVENIDA</h1>
 
         <!-- Subtítulo -->
         <p>Estamos las 24 horas activos, Haz clic para crear tu usuario al instante</p>
 
+        <!-- Caja CTA con texto actualizado -->
+        <div class="cta-box">
+            Nuestro equipo te espera con la mejor atención
+        </div>
+
         <!-- Botón de llamada a la acción -->
         <a href="https://wa.link/megabonus" class="cta-button" target="_blank" onclick="fbq('track', 'Contact');">CHATEAR EN WHATSAPP</a>
     </div>
 
-    <!-- Barra fija (opcional) -->
+    <!-- Barra fija -->
     <div class="bono-bar" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #16a34a; color: white; text-align: center; padding: 10px; font-weight: bold;">
         🎁 ¡Solicítalo ahora por WhatsApp!
     </div>
+
+    <!-- Pie de página con el texto actualizado -->
+    <footer>
+        MEGA BONUS todos los derechos reservados.
+    </footer>
+
+    <!-- Notificaciones "Premios Pagados" -->
+    <script>
+        // Función para mostrar notificaciones
+        document.addEventListener("DOMContentLoaded", function () {
+            const config = {
+                productName: "🎁 Premio PAGADO$$",
+                productImage: "http://imgfz.com/i/gG8bTM6.jpeg",
+                intervalo: 2, // Intervalo de notificaciones (en segundos)
+                duracion: 2, // Duración de cada notificación (en segundos)
+            };
+
+            function showNotification() {
+                const noti = document.createElement("div");
+                noti.className = "xpo-notification-wrap";
+                noti.innerHTML = `
+                    <div class="xpo-img-wrap">
+                        <img src="${config.productImage}" alt="Premio">
+                    </div>
+                    <div class="xpo-col">
+                        <div class="xpo-notification-name">Juan Gómez</div>
+                        <div class="xpo-notification-product">${config.productName}</div>
+                    </div>
+                `;
+                document.body.appendChild(noti);
+                setTimeout(() => noti.classList.add("show"), 100);
+                setTimeout(() => {
+                    noti.classList.remove("show");
+                    setTimeout(() => noti.remove(), 500);
+                }, config.duracion * 1000);
+            }
+
+            // Estilos para las notificaciones
+            const styles = `
+                .xpo-notification-wrap {
+                    position: fixed;
+                    background: #1e1e1e;
+                    color: #ffffff;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                    padding: 10px 14px;
+                    display: flex;
+                    align-items: center;
+                    width: 280px;
+                    z-index: 9999;
+                    border: 1px solid #333;
+                    backdrop-filter: blur(6px);
+                    opacity: 0;
+                    left: -300px;
+                    bottom: 100px;
+                    transition: all 0.5s ease;
+                }
+                .xpo-notification-wrap.show { left: 20px; opacity: 1; }
+                .xpo-img-wrap img {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 6px;
+                    object-fit: cover;
+                    border: 1px solid #444;
+                }
+                .xpo-col { margin-left: 12px; }
+                .xpo-notification-name { font-weight: bold; font-size: 0.9em; color: #fff; }
+                .xpo-notification-product { font-size: 0.85em; color: #22d3ee; }
+            `;
+            const styleTag = document.createElement("style");
+            styleTag.textContent = styles;
+            document.head.appendChild(styleTag);
+
+            // Mostrar notificación
+            showNotification();
+            setInterval(showNotification, config.intervalo * 1000);
+        });
+    </script>
+
 </body>
 
 </html>
