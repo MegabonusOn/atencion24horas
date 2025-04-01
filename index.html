@@ -96,26 +96,80 @@
             margin-top: 60px;
             padding-bottom: 80px;
         }
+
+        /* Estilos para las notificaciones */
+        .xpo-notification-wrap {
+            position: fixed;
+            background: #1e1e1e;
+            color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            width: 280px;
+            z-index: 9999;
+            border: 1px solid #333;
+            backdrop-filter: blur(6px);
+            opacity: 0;
+            left: -300px;
+            bottom: 100px;
+            transition: all 0.5s ease;
+        }
+
+        .xpo-notification-wrap.show {
+            left: 20px;
+            opacity: 1;
+        }
+
+        .xpo-img-wrap img {
+            width: 42px;
+            height: 42px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid #444;
+        }
+
+        .xpo-col {
+            margin-left: 12px;
+        }
+
+        .xpo-notification-name {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #fff;
+        }
+
+        .xpo-notification-product {
+            font-size: 0.85em;
+            color: #22d3ee;
+        }
+
+        .xpo-location {
+            font-size: 0.75em;
+            color: #cbd5e1;
+        }
+
+        .xpo-location::before {
+            content: "📍";
+            margin-right: 4px;
+        }
+
     </style>
 </head>
 
 <body>
+    <!-- Contenedor principal -->
     <div class="container">
-        <!-- Logo de WhatsApp -->
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="whatsapp-logo">
 
-        <!-- Título -->
-        <h1>BONUS DE BIENVENIDA</h1>
+        <h1>🎰 SUPER BONUS ACTIVO 🎰</h1>
+        <p>🏆 Encontra los mejores Sl0ts y atención 24 horas 🏆</p>
 
-        <!-- Subtítulo -->
-        <p>Estamos las 24 horas activos, Haz clic para crear tu usuario al instante</p>
-
-        <!-- Caja CTA con texto actualizado -->
         <div class="cta-box">
             Nuestro equipo te espera con la mejor atención
         </div>
 
-        <!-- Botón de llamada a la acción -->
         <a href="https://wa.link/megabonus" class="cta-button" target="_blank" onclick="fbq('track', 'Contact');">CHATEAR EN WHATSAPP</a>
     </div>
 
@@ -124,32 +178,44 @@
         🎁 ¡Solicítalo ahora por WhatsApp!
     </div>
 
-    <!-- Pie de página con el texto actualizado -->
+    <!-- Pie de página -->
     <footer>
         MEGA BONUS todos los derechos reservados.
     </footer>
 
-    <!-- Notificaciones "Premios Pagados" -->
+    <!-- Función para mostrar notificaciones -->
     <script>
-        // Función para mostrar notificaciones
         document.addEventListener("DOMContentLoaded", function () {
             const config = {
-                productName: "🎁 Premio PAGADO$$",
-                productImage: "http://imgfz.com/i/gG8bTM6.jpeg",
+                productName: "GRACIAS POR CUMPLIR",
+                productImage: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg", // Imagen de ejemplo proporcionada
                 intervalo: 2, // Intervalo de notificaciones (en segundos)
                 duracion: 2, // Duración de cada notificación (en segundos)
             };
 
-            function showNotification() {
+            const notifications = [
+                {
+                    name: "Silvia Monte",
+                    message: "Gracias por la atención que brindan!!",
+                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" // Imagen para la primera notificación
+                },
+                {
+                    name: "Jose Gutierrez",
+                    message: "Tiene buenos juegos y buena gente",
+                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" // Imagen para la segunda notificación
+                }
+            ];
+
+            function showNotification(notification) {
                 const noti = document.createElement("div");
                 noti.className = "xpo-notification-wrap";
                 noti.innerHTML = `
                     <div class="xpo-img-wrap">
-                        <img src="${config.productImage}" alt="Premio">
+                        <img src="${notification.imageUrl}" alt="Premio">
                     </div>
                     <div class="xpo-col">
-                        <div class="xpo-notification-name">Juan Gómez</div>
-                        <div class="xpo-notification-product">${config.productName}</div>
+                        <div class="xpo-notification-name">${notification.name}</div>
+                        <div class="xpo-notification-product">${notification.message}</div>
                     </div>
                 `;
                 document.body.appendChild(noti);
@@ -160,45 +226,13 @@
                 }, config.duracion * 1000);
             }
 
-            // Estilos para las notificaciones
-            const styles = `
-                .xpo-notification-wrap {
-                    position: fixed;
-                    background: #1e1e1e;
-                    color: #ffffff;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-                    padding: 10px 14px;
-                    display: flex;
-                    align-items: center;
-                    width: 280px;
-                    z-index: 9999;
-                    border: 1px solid #333;
-                    backdrop-filter: blur(6px);
-                    opacity: 0;
-                    left: -300px;
-                    bottom: 100px;
-                    transition: all 0.5s ease;
-                }
-                .xpo-notification-wrap.show { left: 20px; opacity: 1; }
-                .xpo-img-wrap img {
-                    width: 42px;
-                    height: 42px;
-                    border-radius: 6px;
-                    object-fit: cover;
-                    border: 1px solid #444;
-                }
-                .xpo-col { margin-left: 12px; }
-                .xpo-notification-name { font-weight: bold; font-size: 0.9em; color: #fff; }
-                .xpo-notification-product { font-size: 0.85em; color: #22d3ee; }
-            `;
-            const styleTag = document.createElement("style");
-            styleTag.textContent = styles;
-            document.head.appendChild(styleTag);
+            // Mostrar las notificaciones
+            notifications.forEach(notification => showNotification(notification));
 
-            // Mostrar notificación
-            showNotification();
-            setInterval(showNotification, config.intervalo * 1000);
+            // Mostrar notificaciones repetidamente
+            setInterval(() => {
+                notifications.forEach(notification => showNotification(notification));
+            }, config.intervalo * 1000);
         });
     </script>
 
