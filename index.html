@@ -17,12 +17,12 @@
       s.parentNode.insertBefore(t,s);
     }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
     
-    fbq('init', '635168062745954'); // Reemplaza con tu Pixel ID
+    fbq('init', 'TU_PIXEL_ID'); // Reemplaza 'TU_PIXEL_ID' con tu ID real del Pixel
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=635168062745954&ev=PageView&noscript=1" />
+      src="https://www.facebook.com/tr?id=TU_PIXEL_ID&ev=PageView&noscript=1" />
   </noscript>
   <!-- End Meta Pixel Code -->
 
@@ -110,7 +110,7 @@
         background: #1e1e1e;
         color: #ffffff;
         border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         padding: 10px 14px;
         display: flex;
         align-items: center;
@@ -188,115 +188,6 @@
       MEGA BONUS todos los derechos reservados.
   </footer>
 
-  <!-- Función para disparar el evento Contact cuando el botón es clickeado -->
-  <script type="text/javascript">
-      document.getElementById('botónContactar').addEventListener('click', function() {
-          // Disparar el evento Contact de Meta Pixel
-          fbq('track', 'Contact');
-          // Aquí se puede abrir WhatsApp en una nueva pestaña
-          window.open('https://wa.link/megabonus', '_blank');
-      }, false);
-  </script>
-
-  <!-- Notificaciones "Premios Pagados" -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const config = {
-        posicion: "izquierda",
-        intervalo: 2,  // Intervalo de aparición en segundos
-        duracion: 2,   // Duración de cada notificación
-        tiempoMaximo: 2,  // Tiempo máximo para generar "hace X tiempo"
-        productName: "Gracias por cumplir", // Mensaje del producto o premio
-        productImage: "http://imgfz.com/i/gG8bTM6.jpeg"  // Imagen para la notificación
-      };
-
-      // Lista de nombres para las notificaciones
-      const nombres = ["Silvia Monte", "Juan Gutierrez", "Salvador Damian", "Flor Arellano", "Exe Bosch"]; 
-
-      // Lista de ciudades para agregar en las notificaciones
-      const ciudades = ["Corrientes", "Santa Fe", "Buenos Aires", "Rosario"];
-
-      // Función para obtener un valor aleatorio de un arreglo
-      function getRandom(arr) {
-        return arr[Math.floor(Math.random() * arr.length)];
-      }
-
-      // Función para calcular un tiempo aleatorio (hace X minutos u horas)
-      function getTimeAgo() {
-        const h = Math.floor(Math.random() * config.tiempoMaximo);
-        const m = Math.floor(Math.random() * 60);
-        return h === 0 ? `hace ${m} minutos` : `hace ${h} hora${h > 1 ? 's' : ''}`;
-      }
-
-      // Función para generar y mostrar las notificaciones
-      function showNotification() {
-        const nombre = getRandom(nombres); // Obtiene un nombre aleatorio
-        const ciudad = getRandom(ciudades); // Obtiene una ciudad aleatoria
-        const tiempo = getTimeAgo(); // Obtiene el tiempo aleatorio
-
-        const noti = document.createElement("div");
-        noti.className = "xpo-notification-wrap";
-        noti.innerHTML = `
-          <div class="xpo-img-wrap">
-            <img src="${config.productImage}" alt="Premio">
-          </div>
-          <div class="xpo-col">
-            <div class="xpo-notification-name">${nombre}</div>
-            <div class="xpo-notification-product">${config.productName}</div>
-            <div class="xpo-location">Desde ${ciudad} • ${tiempo}</div>
-          </div>
-        `;
-        document.body.appendChild(noti);
-        setTimeout(() => noti.classList.add("show"), 100);
-        setTimeout(() => {
-          noti.classList.remove("show");
-          setTimeout(() => noti.remove(), 500);
-        }, config.duracion * 1000);
-      }
-
-      // Estilos para las notificaciones
-      const styles = `
-        .xpo-notification-wrap {
-          position: fixed;
-          background: #1e1e1e;
-          color: #ffffff;
-          border-radius: 8px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-          padding: 10px 14px;
-          display: flex;
-          align-items: center;
-          width: 280px;
-          z-index: 9999;
-          border: 1px solid #333;
-          backdrop-filter: blur(6px);
-          opacity: 0;
-          left: -300px;
-          bottom: 100px;
-          transition: all 0.5s ease;
-        }
-        .xpo-notification-wrap.show { left: 20px; opacity: 1; }
-        .xpo-img-wrap img {
-          width: 42px;
-          height: 42px;
-          border-radius: 6px;
-          object-fit: cover;
-          border: 1px solid #444;
-        }
-        .xpo-col { margin-left: 12px; }
-        .xpo-notification-name { font-weight: bold; font-size: 0.9em; color: #fff; }
-        .xpo-notification-product { font-size: 0.85em; color: #22d3ee; }
-        .xpo-location { font-size: 0.75em; color: #cbd5e1; }
-        .xpo-location::before { content: "📍"; margin-right: 4px; }
-      `;
-      const styleTag = document.createElement("style");
-      styleTag.textContent = styles;
-      document.head.appendChild(styleTag);
-
-      showNotification();
-      setInterval(showNotification, config.intervalo * 1000); // Generar notificaciones cada X segundos
-    });
-  </script>
-
-</body>
-
-</html>
+  <!-- Función para disparar el evento Contact cuando el botón es clickeado
+::contentReference[oaicite:0]{index=0}
+ 
