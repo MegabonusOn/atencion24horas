@@ -118,15 +118,9 @@
         z-index: 9999;
         border: 1px solid #333;
         backdrop-filter: blur(6px);
-        opacity: 0;
-        left: -300px;
-        bottom: 180px; /* Mover más abajo de la pantalla */
-        transition: all 0.5s ease;
-    }
-
-    .xpo-notification-wrap.show {
-        left: 20px;
         opacity: 1;
+        left: 20px;
+        bottom: 100px; /* Ajusta la posición vertical según sea necesario */
     }
 
     .xpo-img-wrap img {
@@ -188,6 +182,12 @@
       MEGA BONUS todos los derechos reservados.
   </footer>
 
-  <!-- Función para disparar el evento Contact cuando el botón es clickeado
+  <!-- Función para disparar el evento Contact cuando el botón es clickeado -->
+  <script type="text/javascript">
+      document.getElementById('botónContactar').addEventListener('click', function() {
+          // Disparar el evento 'Contact' del Pixel de Meta
+          fbq('track', 'Contact');
+          // Redirigir al usuario a la página de contacto o abrir WhatsApp, según corresponda
+          window.location.href = 'https://wa.link/megabonus'; // Reemplaza con tu enlace de WhatsApp
 ::contentReference[oaicite:0]{index=0}
  
