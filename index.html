@@ -7,7 +7,7 @@
     <title>Landing Page - BONUS DE BIENVENIDA</title>
 
     <!-- Meta Pixel Code de Damian -->
-    <script>
+    <script async>
         !function(f, b, e, v, n, t, s) {
             if(f.fbq) return; n=f.fbq=function(){n.callMethod ?
             n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
@@ -113,7 +113,7 @@
             backdrop-filter: blur(6px);
             opacity: 0;
             left: -300px;
-            bottom: 100px;
+            bottom: 180px; /* Mover más abajo de la pantalla */
             transition: all 0.5s ease;
         }
 
@@ -189,7 +189,7 @@
             const config = {
                 productName: "GRACIAS POR CUMPLIR",
                 productImage: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg", // Imagen de ejemplo proporcionada
-                intervalo: 2, // Intervalo de notificaciones (en segundos)
+                intervalo: 3, // Intervalo de notificaciones (en segundos)
                 duracion: 2, // Duración de cada notificación (en segundos)
             };
 
@@ -226,12 +226,11 @@
                 }, config.duracion * 1000);
             }
 
-            // Mostrar las notificaciones
-            notifications.forEach(notification => showNotification(notification));
-
-            // Mostrar notificaciones repetidamente
-            setInterval(() => {
-                notifications.forEach(notification => showNotification(notification));
+            // Mostrar las notificaciones de forma intercalada
+            let currentNotificationIndex = 0;
+            setInterval(function () {
+                showNotification(notifications[currentNotificationIndex]);
+                currentNotificationIndex = (currentNotificationIndex + 1) % notifications.length;
             }, config.intervalo * 1000);
         });
     </script>
