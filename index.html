@@ -196,6 +196,99 @@
           window.open('https://wa.link/megabonus', '_blank');
       }, false);
   </script>
+
+  <!-- Notificaciones "Premios Pagados" -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const config = {
+        posicion: "izquierda",
+        intervalo: 2,
+        duracion: 2,
+        tiempoMaximo: 2,
+        productName: "🎁 Premio PAGADO$$",
+        productImage: "http://imgfz.com/i/gG8bTM6.jpeg"
+      };
+
+      const nombres = ["Juan Gómez", "María López", "Carlos Pérez", "Laura Castro", "Exe Bosch"];
+      const ciudades = ["Jujuy", "Córdoba", "Tucumán", "Rosario", "Buenos Aires"];
+
+      function getRandom(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      function getTimeAgo() {
+        const h = Math.floor(Math.random() * config.tiempoMaximo);
+        const m = Math.floor(Math.random() * 60);
+        return h === 0 ? `hace ${m} minutos` : `hace ${h} hora${h > 1 ? 's' : ''}`;
+      }
+
+      function showNotification() {
+        const nombre = getRandom(nombres);
+        const ciudad = getRandom(ciudades);
+        const tiempo = getTimeAgo();
+
+        const noti = document.createElement("div");
+        noti.className = "xpo-notification-wrap";
+        noti.innerHTML = `
+          <div class="xpo-img-wrap">
+            <img src="${config.productImage}" alt="Premio">
+          </div>
+          <div class="xpo-col">
+            <div class="xpo-notification-name">${nombre}</div>
+            <div class="xpo-notification-product">${config.productName}</div>
+            <div class="xpo-location">Desde ${ciudad} • ${tiempo}</div>
+          </div>
+        `;
+        document.body.appendChild(noti);
+        setTimeout(() => noti.classList.add("show"), 100);
+        setTimeout(() => {
+          noti.classList.remove("show");
+          setTimeout(() => noti.remove(), 500);
+        }, config.duracion * 1000);
+      }
+
+      const styles = `
+        .xpo-notification-wrap {
+          position: fixed;
+          background: #1e1e1e;
+          color: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          padding: 10px 14px;
+          display: flex;
+          align-items: center;
+          width: 280px;
+          z-index: 9999;
+          border: 1px solid #333;
+          backdrop-filter: blur(6px);
+          opacity: 0;
+          left: -300px;
+          bottom: 100px;
+          transition: all 0.5s ease;
+        }
+        .xpo-notification-wrap.show { left: 20px; opacity: 1; }
+        .xpo-img-wrap img {
+          width: 42px;
+          height: 42px;
+          border-radius: 6px;
+          object-fit: cover;
+          border: 1px solid #444;
+        }
+        .xpo-col { margin-left: 12px; }
+        .xpo-notification-name { font-weight: bold; font-size: 0.9em; color: #fff; }
+        .xpo-notification-product { font-size: 0.85em; color: #22d3ee; }
+        .xpo-location { font-size: 0.75em; color: #cbd5e1; }
+        .xpo-location::before { content: "📍"; margin-right: 4px; }
+      `;
+      const styleTag = document.createElement("style");
+      styleTag.textContent = styles;
+      document.head.appendChild(styleTag);
+
+      showNotification();
+      setInterval(showNotification, config.intervalo * 1000);
+    });
+  </script>
+
 </body>
 
 </html>
